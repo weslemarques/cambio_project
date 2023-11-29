@@ -1,9 +1,8 @@
-package com.wesle.cambioservice.application.service;
+package br.com.wesle.cambioservice.service;
 
-import com.wesle.cambioservice.adapters.dtos.CambioResponseDTO;
-import com.wesle.cambioservice.application.contract.CambioService;
-import com.wesle.cambioservice.infra.repositories.CambioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.wesle.cambioservice.repositories.CambioRepository;
+import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
+import br.com.wesle.cambioservice.contract.CambioService;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 

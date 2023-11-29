@@ -1,9 +1,8 @@
-package com.wesle.cambioservice.adapters.controller;
+package br.com.wesle.cambioservice.controller;
 
-import com.wesle.cambioservice.adapters.dtos.BookRequestDTO;
-import com.wesle.cambioservice.adapters.dtos.CambioResponseDTO;
-import com.wesle.cambioservice.application.contract.CambioService;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.wesle.cambioservice.contract.CambioService;
+import br.com.wesle.cambioservice.dtos.BookRequestDTO;
+import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package com.wesle.cambioservice.infra.repositories;
+package br.com.wesle.cambioservice.repositories;
 
-import com.wesle.cambioservice.core.model.Cambio;
+import br.com.wesle.cambioservice.model.Cambio;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CambioRepository extends JpaRepository<Cambio, Long> {

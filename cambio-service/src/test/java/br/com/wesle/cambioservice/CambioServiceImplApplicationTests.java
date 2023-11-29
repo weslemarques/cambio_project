@@ -1,4 +1,4 @@
-package com.wesle.cambioservice;
+package br.com.wesle.cambioservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

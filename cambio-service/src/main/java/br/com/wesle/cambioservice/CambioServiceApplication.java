@@ -1,4 +1,4 @@
-package com.wesle.cambioservice;
+package br.com.wesle.cambioservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

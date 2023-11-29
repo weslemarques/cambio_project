@@ -1,4 +1,4 @@
-package com.wesle.cambioservice.core.model;
+package br.com.wesle.cambioservice.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

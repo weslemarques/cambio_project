@@ -1,6 +1,6 @@
-package com.wesle.cambioservice.application.contract;
+package br.com.wesle.cambioservice.contract;
 
-import com.wesle.cambioservice.adapters.dtos.CambioResponseDTO;
+import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
 
 import java.math.BigDecimal;
 

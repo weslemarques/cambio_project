@@ -1,13 +1,14 @@
-package com.wesle.cambioservice.adapters.dtos;
+package br.com.wesle.cambioservice.dtos;
 
 import lombok.Builder;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Builder
 @Getter
-public class CambioResponseDTO {
+public class CambioResponseDTO implements Serializable {
 
     private Long id;
     private String from;

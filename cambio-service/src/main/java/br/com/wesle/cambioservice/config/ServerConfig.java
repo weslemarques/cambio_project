@@ -1,4 +1,4 @@
-package com.wesle.cambioservice.infra.config;
+package br.com.wesle.cambioservice.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
