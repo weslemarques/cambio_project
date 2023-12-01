@@ -16,7 +16,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Criação do microsserviço de Cambio
 - [x] Criaçâo de toda estrutura basica
 - [x] Conexão do banco de dados (Docker)
-- [ ] Criação do microsserviço de Books
+- [x] Criação do microsserviço de Books
 - [ ] Comunicação do microsserviços como o Server Config
 - [ ] Integração entre os  microsserviços
 
