@@ -3,3 +3,18 @@ server:
 spring:
   application:
     name: book-service
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_service
+    username: postgres
+    password: Teste3345#
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/
+    schemas: book_service
+    user: postgres
+    password: Teste3345#

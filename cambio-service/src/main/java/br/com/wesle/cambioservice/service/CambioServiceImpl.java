@@ -1,5 +1,7 @@
 package br.com.wesle.cambioservice.service;
 
+import br.com.wesle.cambioservice.dtos.BookRequestDTO;
+import br.com.wesle.cambioservice.model.Cambio;
 import br.com.wesle.cambioservice.repositories.CambioRepository;
 import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
 import br.com.wesle.cambioservice.contract.CambioService;
@@ -20,8 +22,8 @@ public class CambioServiceImpl implements CambioService {
     }
 
     @Override
-    public CambioResponseDTO getCambio(String from, String to, BigDecimal amount) {
-        var cambio  = cambioRepository.findByFromAndTo(from,to);
+    public CambioResponseDTO getCambio(BookRequestDTO bookRequestDTO) {
+            Cambio cambio  = cambioRepository.findByFromAndTo(bookRequestDTO.getFrom(),bookRequestDTO.getTo());
         var port  = environment.getProperty("local.server.port");
 
         CambioResponseDTO responseDTO = CambioResponseDTO.builder()
@@ -29,9 +31,17 @@ public class CambioServiceImpl implements CambioService {
                                                         .to(cambio.getTo())
                                                         .from(cambio.getFrom())
                                                         .conversionFactor(cambio.getConversionFactor())
-                                                         .converteValue(amount.multiply(cambio
+                                                         .converteValue(bookRequestDTO.getAmount().multiply(cambio
                                                                  .getConversionFactor()))
                                                                     .enviroment(port).build();
+
         return responseDTO;
+    }
+
+    @Override
+    public Cambio create(Cambio cambio) {
+         cambio = cambioRepository.save(cambio);
+
+         return cambio;
     }
 }

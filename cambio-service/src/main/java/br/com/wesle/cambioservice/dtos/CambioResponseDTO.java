@@ -2,12 +2,14 @@ package br.com.wesle.cambioservice.dtos;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Builder
 @Getter
+@Setter
 public class CambioResponseDTO implements Serializable {
 
     private Long id;
@@ -29,32 +31,5 @@ public class CambioResponseDTO implements Serializable {
         this.enviroment = enviroment;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public void setConversionFactor(BigDecimal conversionFactor) {
-        this.conversionFactor = conversionFactor;
-    }
-
-    public double getConverteValue() {
-        return Double.parseDouble(String.format("%.2f",converteValue));
-    }
-
-    public void setConverteValue(BigDecimal converteValue) {
-        this.converteValue = converteValue;
-    }
-
-    public void setEnviroment(String enviroment) {
-        this.enviroment = enviroment;
-    }
 
 }

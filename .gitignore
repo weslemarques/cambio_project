@@ -21,6 +21,7 @@ target/
 
 ### config
 *.yaml
+*/application.yaml
 
 ### NetBeans ###
 /nbproject/private/
