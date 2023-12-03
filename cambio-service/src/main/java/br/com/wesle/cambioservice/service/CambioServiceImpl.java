@@ -1,11 +1,13 @@
 package br.com.wesle.cambioservice.service;
 
+import br.com.wesle.cambioservice.model.Cambio;
 import br.com.wesle.cambioservice.repositories.CambioRepository;
 import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
 import br.com.wesle.cambioservice.contract.CambioService;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import java.io.EOFException;
 import java.math.BigDecimal;
 
 @Service
@@ -21,17 +23,15 @@ public class CambioServiceImpl implements CambioService {
 
     @Override
     public CambioResponseDTO getCambio(String from, String to, BigDecimal amount) {
-        var cambio  = cambioRepository.findByFromAndTo(from,to);
-        var port  = environment.getProperty("local.server.port");
+        Cambio cambio  = cambioRepository.findById(1L).orElseThrow(() -> new RuntimeException("Erro"));
 
-        CambioResponseDTO responseDTO = CambioResponseDTO.builder()
+        return CambioResponseDTO.builder()
                                                         .id(cambio.getId())
                                                         .to(cambio.getTo())
                                                         .from(cambio.getFrom())
                                                         .conversionFactor(cambio.getConversionFactor())
                                                          .converteValue(amount.multiply(cambio
                                                                  .getConversionFactor()))
-                                                                    .enviroment(port).build();
-        return responseDTO;
+                                                                    .enviroment("8000").build();
     }
 }

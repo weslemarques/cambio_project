@@ -8,11 +8,13 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: <yourpassword>
+    password: Teste3345#
     url: jdbc:postgresql://localhost:5432/cambio_service
   jpa:
     hibernate:
-      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQL92Dialect
+      ddl-auto: none
+    show-sql: true
   flyway:
     url: jdbc:postgresql://localhost:5432/
     schemas: cambio_service
