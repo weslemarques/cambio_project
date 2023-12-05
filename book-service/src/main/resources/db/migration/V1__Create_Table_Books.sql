@@ -1,7 +1,7 @@
 CREATE TABLE books(
     id serial  PRIMARY KEY,
-    author char(70),
+    author char(170),
     launch_date date,
     price decimal(10,2),
-    title char(70)
+    title char(170)
 );
