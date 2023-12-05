@@ -1,28 +1,27 @@
 package br.com.wesle.bookservice.controller;
 
+import br.com.wesle.bookservice.dtos.BookRequestDTO;
 import br.com.wesle.bookservice.dtos.BookResponseDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
+import br.com.wesle.bookservice.service.BookService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/book-service")
 public class BookController {
 
-    @GetMapping("/{id}/{currency}")
-    public BookResponseDTO getBook(@PathVariable Long id , @PathVariable String currency){
-        return BookResponseDTO.builder()
-                .title("Dev Melhor")
-                .price(34.5)
-                .id(id)
-                .author("Wesle")
-                .launchDate(new Date())
-                .currency(currency)
-                .environment("8100")
-                .build();
+    private final BookService service;
+
+    public BookController(BookService service) {
+        this.service = service;
+    }
+
+
+    @PostMapping
+    public ResponseEntity<BookResponseDTO> getBook(@RequestBody BookRequestDTO requestDTO){
+        var response  = service.getBookById(requestDTO.id());
+        response.setCurrency(requestDTO.currency());
+        return ResponseEntity.ok(response);
     }
 
 }
