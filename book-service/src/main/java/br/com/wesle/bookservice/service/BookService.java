@@ -23,9 +23,6 @@ public class BookService {
     public BookResponseDTO getBookById(Long id){
         var bookEntity = repository.getReferenceById(id);
 
-
-
-
         var port = environment.getProperty("local.server.port");
         return BookResponseDTO.builder()
                 .title(bookEntity.getTitle())

@@ -17,16 +17,11 @@ public class CambioController {
         this.cambioService = cambioService;
     }
 
-    @GetMapping()
+    @PostMapping
     public ResponseEntity<CambioResponseDTO> getCambio(@RequestBody BookRequestDTO bookRequestDTO){
        var cambioResponse = cambioService.getCambio(bookRequestDTO);
         return ResponseEntity.ok(cambioResponse);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Cambio> insert(@RequestBody Cambio cambio){
-        cambio  = cambioService.create(cambio);
-        return ResponseEntity.ok(cambio);
-    }
 
 }

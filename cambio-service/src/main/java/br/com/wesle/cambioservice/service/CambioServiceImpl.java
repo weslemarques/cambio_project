@@ -1,12 +1,11 @@
 package br.com.wesle.cambioservice.service;
 
-import br.com.wesle.cambioservice.repositories.CambioRepository;
-import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
 import br.com.wesle.cambioservice.contract.CambioService;
+import br.com.wesle.cambioservice.dtos.BookRequestDTO;
+import br.com.wesle.cambioservice.dtos.CambioResponseDTO;
+import br.com.wesle.cambioservice.repositories.CambioRepository;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 
 @Service
 public class CambioServiceImpl implements CambioService {
@@ -20,8 +19,8 @@ public class CambioServiceImpl implements CambioService {
     }
 
     @Override
-    public CambioResponseDTO getCambio(String from, String to, BigDecimal amount) {
-        var cambio  = cambioRepository.findByFromAndTo(from,to);
+    public CambioResponseDTO getCambio(BookRequestDTO bookRequestDTO) {
+        var cambio  = cambioRepository.findByFromAndTo(bookRequestDTO.getFrom(),bookRequestDTO.getTo());
         var port  = environment.getProperty("local.server.port");
 
         CambioResponseDTO responseDTO = CambioResponseDTO.builder()
@@ -29,9 +28,10 @@ public class CambioServiceImpl implements CambioService {
                                                         .to(cambio.getTo())
                                                         .from(cambio.getFrom())
                                                         .conversionFactor(cambio.getConversionFactor())
-                                                         .converteValue(amount.multiply(cambio
+                                                         .converteValue(bookRequestDTO.getAmount().multiply(cambio
                                                                  .getConversionFactor()))
                                                                     .enviroment(port).build();
         return responseDTO;
     }
+
 }
