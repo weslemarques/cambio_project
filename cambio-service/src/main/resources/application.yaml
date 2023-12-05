@@ -15,7 +15,9 @@ spring:
       ddl-auto: update
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/
-    schemas: cambio_service
+    url: jdbc:postgresql://localhost:5432/cambio_service
     user: postgres
     password: Teste3345#
+    password: Teste3345#
+
+
