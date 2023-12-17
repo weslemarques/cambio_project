@@ -7,6 +7,8 @@ import br.com.wesle.cambioservice.repositories.CambioRepository;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 public class CambioServiceImpl implements CambioService {
 
@@ -28,8 +30,8 @@ public class CambioServiceImpl implements CambioService {
                                                         .to(cambio.getTo())
                                                         .from(cambio.getFrom())
                                                         .conversionFactor(cambio.getConversionFactor())
-                                                         .converteValue(bookRequestDTO.getAmount().multiply(cambio
-                                                                 .getConversionFactor()))
+                                                         .converteValue(cambio
+                                                                 .getConversionFactor().multiply(BigDecimal.valueOf(bookRequestDTO.getAmount())))
                                                                     .enviroment(port).build();
         return responseDTO;
     }
