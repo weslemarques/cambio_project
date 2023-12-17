@@ -10,5 +10,4 @@ public interface CambioService {
 
     public CambioResponseDTO getCambio(BookRequestDTO bookRequestDTO);
 
-    Cambio create(Cambio cambio);
 }

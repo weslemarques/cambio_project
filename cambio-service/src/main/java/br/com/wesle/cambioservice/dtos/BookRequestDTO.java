@@ -7,20 +7,20 @@ import java.math.BigDecimal;
 
 @Getter
 public class BookRequestDTO implements Serializable {
-    private BigDecimal amount;
+    private Double amount;
     private String from;
     private String to;
 
     public BookRequestDTO() {
     }
 
-    public BookRequestDTO(BigDecimal amount, String from, String to) {
+    public BookRequestDTO(Double amount, String from, String to) {
         this.amount = amount;
         this.from = from;
         this.to = to;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

@@ -1,4 +1,4 @@
-package br.com.wesle.bookservice.dtos;
+package br.com.wesle.bookservice.dtos.response;
 
 import lombok.Builder;
 import lombok.Data;
