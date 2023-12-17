@@ -1,7 +1,7 @@
 package br.com.wesle.bookservice.controller;
 
-import br.com.wesle.bookservice.dtos.BookRequestDTO;
-import br.com.wesle.bookservice.dtos.BookResponseDTO;
+import br.com.wesle.bookservice.dtos.request.BookRequestDTO;
+import br.com.wesle.bookservice.dtos.response.BookResponseDTO;
 import br.com.wesle.bookservice.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
