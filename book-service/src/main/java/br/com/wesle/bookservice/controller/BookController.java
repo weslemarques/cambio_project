@@ -19,7 +19,7 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<BookResponseDTO> getBook(@RequestBody BookRequestDTO requestDTO){
-        var response  = service.getBookById(requestDTO.id());
+        var response  = service.getBookById(requestDTO.id(), requestDTO.currency());
         response.setCurrency(requestDTO.currency());
         return ResponseEntity.ok(response);
     }
