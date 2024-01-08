@@ -3,10 +3,8 @@ package br.com.wesle.bookservice.service;
 import br.com.wesle.bookservice.consumer.CambioConsumer;
 import br.com.wesle.bookservice.dtos.request.CambioRequestDTO;
 import br.com.wesle.bookservice.dtos.response.BookResponseDTO;
-import br.com.wesle.bookservice.dtos.response.CambioResponseDTO;
 import br.com.wesle.bookservice.model.Book;
 import br.com.wesle.bookservice.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +20,12 @@ public class BookService {
         this.consumer = consumer;
     }
 
-    public BookResponseDTO getBookById(Long id){
+    public BookResponseDTO getBookById(Long id, String currency){
         Book book = repository.getReferenceById(id);
         var port = environment.getProperty("local.server.port");
-        CambioRequestDTO request = new CambioRequestDTO(book.getPrice(),"USD","BRL");
+        CambioRequestDTO request = new CambioRequestDTO(book.getPrice(),"USD",currency);
         var response = consumer.getCambio(request);
-        if (response.getStatusCode().value() == 200)
+        if (response.getStatusCode().value() == 200 && response.hasBody())
             return BookResponseDTO.builder()
                 .title(book.getTitle())
                 .price(response.getBody().getConverteValue().doubleValue())
